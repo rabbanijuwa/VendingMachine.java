@@ -1,16 +1,20 @@
 public class NutritionalFacts {
+    private double productPrices;
     private int calories;
     private double sugar;
-    private double fat;
-    private double protein;
     private ProductCategory productCategory;
 
-    public NutritionalFacts(int calories, double sugar, double fat, double protein, ProductCategory productCategory) {
+    public NutritionalFacts(double productPrices, int calories, double sugar, ProductCategory productCategory) {
+        this.productPrices = productPrices;
         this.calories = calories;
         this.sugar = sugar;
-        this.fat = fat;
-        this.protein = protein;
         this.productCategory = productCategory;
+    }
+    public double getPrice() {
+        return productPrices;
+    }
+    public void setPrice(){
+        this.productPrices = productPrices;
     }
     public int getCalories() {
         return calories;
@@ -25,20 +29,6 @@ public class NutritionalFacts {
     }
     public void setSugar(){
         this.sugar = sugar;
-    }
-
-    public double getFat() {
-        return fat;
-    }
-    public void setFat(){
-       this.fat = fat;
-    }
-
-    public double getProtein() {
-        return protein;
-    }
-    public void setProtein(){
-        this.protein = protein;
     }
     public ProductCategory getProductCategory(){
         return productCategory;
