@@ -478,7 +478,8 @@ public class VendingMachine {
                 } else {
 
                     System.out.println("You have purchased: " + product);
-                    ProductInfo productPrice = getProductInfo(product);
+                    ProductInfo productPriceInfo = getProductInfo(product);
+                    double productPrice = productPriceInfo.getPrice();
                     System.out.println("Price: $" + productPrice);
                     totalAmount +=  productPrice;
                 }
@@ -507,22 +508,6 @@ public class VendingMachine {
                 break; // Exit the loop if the user doesn't want to continue shopping
 
             }
-            vendingMachine.display();
-            //Ask Customer to input money
-            System.out.print("Enter the amount of cash you want to insert: $");
-            double customerMoney = scanner.nextDouble();
-
-
-            if (totalAmount > customerMoney) {
-                double change = totalAmount - customerMoney;
-                System.out.println("Not enough money. Please insert $" + change + " more.");
-                break; // Exit the loop
-            } else {
-                System.out.println("Change:" + (customerMoney - totalAmount));
-                System.out.println("Total Amount: $" + totalAmount);
-                System.out.println("Thank you for your purchases!");
-            }
         }
     }
 }
-
