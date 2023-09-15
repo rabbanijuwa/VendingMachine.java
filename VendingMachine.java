@@ -479,8 +479,15 @@ public class VendingMachine {
 
                     System.out.println("You have purchased: " + product);
                     ProductInfo productPriceInfo = getProductInfo(product);
+                    ProductInfo productCalorieInfo = getProductInfo(product);
+                    ProductInfo productSugarInfo = getProductInfo(product);
                     double productPrice = productPriceInfo.getPrice();
+                    int productCalorie = productCalorieInfo.getCalories();
+                    double productSugar = productSugarInfo.getSugar();
+
                     System.out.println("Price: $" + productPrice);
+                    System.out.println("Calories:" + productCalorie);
+                    System.out.println("Sugars:" + productSugar);
                     totalAmount +=  productPrice;
                 }
             } else {
