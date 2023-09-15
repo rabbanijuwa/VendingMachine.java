@@ -1,10 +1,10 @@
-public class NutritionalFacts {
+public class ProductInfo {
     private double productPrices;
     private int calories;
     private double sugar;
     private ProductCategory productCategory;
 
-    public NutritionalFacts(double productPrices, int calories, double sugar, ProductCategory productCategory) {
+    public ProductInfo(double productPrices, int calories, double sugar, ProductCategory productCategory) {
         this.productPrices = productPrices;
         this.calories = calories;
         this.sugar = sugar;
@@ -33,7 +33,7 @@ public class NutritionalFacts {
     public ProductCategory getProductCategory(){
         return productCategory;
     }
-    public void stBreed(){
+    public void setBreed(){
         this.productCategory = productCategory;
     }
 }

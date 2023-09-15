@@ -40,6 +40,7 @@ public class VendingMachine {
                     if (product == null) {
                         System.out.print("[Empty] ");
                     } else {
+                        ProductInfo info = getProductInfo(product);
                         System.out.print("[" + product + "] ");
                     }
                 }
@@ -49,7 +50,7 @@ public class VendingMachine {
         }
     }
 
-    private static double getProductPrice(String productName) {
+    public static ProductInfo getProductInfo(String productName) {
         // Define arrays to store product names and prices
         String[] productNames = {
                 "KitKat1", "KitKat2", "KitKat3", "KitKat4", "KitKat5", "KitKat6",
@@ -208,14 +209,12 @@ public class VendingMachine {
 
         for (int i = 0; i < productNames.length; i++) {
             if (productNames[i].equals(productName)) {
-                return productPrices[i]; // Return the price if found
-                return productCalories[i]; // Return the  calories if found
-                return sugar[i]; //return the sugar amount if found
+                return new ProductInfo(productPrices[i], productCalories[i], sugar[i], null);
             }
         }
 
         // If the product name is not found, return a default price (e.g., $1.00)
-        return 1.00;
+        return new ProductInfo(1.0, 0, 0.0, null);
     }
 
 
@@ -477,10 +476,11 @@ public class VendingMachine {
                 } else if (product.equals("Invalid location")) {
                     System.out.println("Invalid location.");
                 } else {
+
                     System.out.println("You have purchased: " + product);
-                    double productPrice = getProductPrice(product);
+                    ProductInfo productPrice = getProductInfo(product);
                     System.out.println("Price: $" + productPrice);
-                    totalAmount += productPrice;
+                    totalAmount +=  productPrice;
                 }
             } else {
                 System.out.println("Invalid input. Please enter valid row, column, and depth.");
